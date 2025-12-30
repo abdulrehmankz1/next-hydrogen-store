@@ -26,16 +26,20 @@ export function Header({
   const {shop, menu} = header;
   return (
     <header className="header">
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
-      </NavLink>
-      <HeaderMenu
-        menu={menu}
-        viewport="desktop"
-        primaryDomainUrl={header.shop.primaryDomain.url}
-        publicStoreDomain={publicStoreDomain}
-      />
-      <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+      <div className="container mx-auto">
+        <div className="flex justify-evenly w-full">
+          <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
+            <strong>{shop.name}</strong>
+          </NavLink>
+          <HeaderMenu
+            menu={menu}
+            viewport="desktop"
+            primaryDomainUrl={header.shop.primaryDomain.url}
+            publicStoreDomain={publicStoreDomain}
+          />
+          <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+        </div>
+      </div>
     </header>
   );
 }
@@ -100,7 +104,7 @@ function HeaderCtas({
   cart,
 }: Pick<HeaderProps, 'isLoggedIn' | 'cart'>) {
   return (
-    <nav className="header-ctas" role="navigation">
+    <nav className="header-ctas ml-0" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
         <Suspense fallback="Sign in">

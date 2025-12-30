@@ -82,7 +82,7 @@ function SearchAside() {
                 name="q"
                 onChange={fetchResults}
                 onFocus={fetchResults}
-                placeholder="Search"
+                placeholder="Search kkk"
                 ref={inputRef}
                 type="search"
                 list={queriesDatalistId}
